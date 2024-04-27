@@ -460,6 +460,11 @@ footer{
   .blog-title{
     flex-direction: column;
   }
+  .single-blog p{
+    width: 80vw;
+    padding: 0 2.5rem;
+    color: #fbfbfb;
+  }
   .single-blog h1{
     width: 100%;
   }
@@ -570,12 +575,16 @@ footer{
 
 @media screen and (max-width:430px) {
 
-  
+  .blog-title{
+    font-size: 25px;
+  }
   .blog-brief{
     display: none;
   }
   
-  
+  .sub-title{
+    width: ;
+  }
   .blog{
     flex-direction: column;
     height: fit-content;
