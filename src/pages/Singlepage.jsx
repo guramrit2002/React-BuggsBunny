@@ -9,6 +9,7 @@ function Singlepage() {
     const { id } = useParams();
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
+    const [loading,setLoading] = useState(false)
     const {currentUser}  = useAuth();
 
     useEffect(() => {
@@ -21,10 +22,10 @@ function Singlepage() {
                 axios.get(`https://buggbunny.pythonanywhere.com//blog/${id}`,{
                     headers: {
                         Authorization: `Bearer ${idToken}`,
-                        
                     }
                 })
                 .then((response) => {
+                    console.log(response.data)
                     setData(response.data);
                 })
                 .catch((error) => {
@@ -37,7 +38,7 @@ function Singlepage() {
             }
         }
         fetchBlog()
-    }, [id]);
+    }, [id,currentUser]);
 
     function extractDate(isoString) {
         const date = new Date(isoString);
@@ -51,6 +52,13 @@ function Singlepage() {
         <>
             <Navbar />
             <div className='container single-blog'>
+            {loading ? 
+                (
+                    <h1 style={{'margin':"20rem"}}>{console.log('loading....')}</h1>
+                )
+            :
+            (
+                <>
                 <div className='blog-image'>
                     <IKContext urlEndpoint={urlEndpoint}>
                         <IKImage
@@ -61,14 +69,19 @@ function Singlepage() {
                         />
                     </IKContext>
                 </div>
-
                 <div className='blog-title'>
                     <h1>{data.title}</h1>
-                    <p>{extractDate(data.created_on)}</p> {/* Assuming data.created_on exists and is a valid ISO string */}
+                    <div className="sub-title">
+                        <p>{extractDate(data.created_on)}</p>
+                        <p>{currentUser.email}</p>
+                    </div>
                 </div>
                 <div className='blog-content'>
                     <p>{data.content}</p>
                 </div>
+                </>
+            )
+            }
             </div>
             <footer>
                 <div className='footer-container'>

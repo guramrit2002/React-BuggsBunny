@@ -3,6 +3,8 @@ import Blog from "../components/Blog";
 import Navbar from "../components/navbar";
 import axios from "axios";
 import { useAuth } from "../contexts/authcontexts";
+import { GiRabbitHead } from "react-icons/gi";
+
 
 function Profilepage() {
     

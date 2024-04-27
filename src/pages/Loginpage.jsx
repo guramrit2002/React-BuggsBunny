@@ -51,8 +51,8 @@ function Loginpage() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <button disabled={loading} type="submit">Signup</button>
-                        <p>Need an new account? <Link to="/login">Sign Up</Link></p>
+                        <button disabled={loading} type="submit">SignIn</button>
+                        <p>Need an new account? <Link to="/signup">Sign Up</Link></p>
                     </form>
                 </div>
             </div>

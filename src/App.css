@@ -67,10 +67,7 @@ a{
   justify-content: flex-start;
   align-items: center;
 }
-.carrousel h1{
-  
-  filter: blur(0);
-}
+
 .bg{
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
@@ -460,13 +457,26 @@ footer{
 }
 
 @media screen and (max-width:768px) {
+  .blog-title{
+    flex-direction: column;
+  }
+  .single-blog h1{
+    width: 100%;
+  }
+  .sub-title{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
   .user-head{
     font-size: 25px;
-    padding-top: 5rem;
+    padding-top: 10rem;
   }
   .container{
   position: relative;
-
+    height: 100vh;
+    justify-content: flex-start;
   }
   .ham{
     display: flex;
@@ -486,14 +496,15 @@ footer{
     z-index: 999;
     position: absolute;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    
+
   }
 
   .tabs{
     flex-direction: column;
     width: 100%;
     display: none;
+    
     
   }
   .navbar .expanded .tabs {
@@ -533,7 +544,7 @@ footer{
   .bg{
     height: fit-content;
     width: 100%;
-    margin:5rem 2rem;
+    margin:5rem 1rem;
 
   }
   .banner-text-laptop{
@@ -581,7 +592,7 @@ footer{
   }
   .bg{
     height: fit-content;
-    width: 50%;
+    width: 90%;
 
 
   }
@@ -611,7 +622,7 @@ footer{
     margin: 1rem 0;
   }
   .navbar{
-    padding: 0;
+    
   }
   .home-blogs{
     width: 100%;
