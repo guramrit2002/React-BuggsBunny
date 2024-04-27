@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu, GiRabbitHead } from "react-icons/gi";
 import { useAuth } from '../contexts/authcontexts';
 import { useState } from 'react';
 import '../App.css';
@@ -29,7 +29,8 @@ function Navbar() {
         <nav className={`navbar ${isExpanded ? 'expanded' : ''}`}>
             <div className='inner-header'>
                 <div className='Logo'>
-                    <h1>Buggsbunny</h1>
+                    <h1 style={{display:"flex",alignItems:"center",justifyContent:"center"}}>Buggsbunny <GiRabbitHead /></h1>
+                    
                 </div>
                 <GiHamburgerMenu className='ham' onClick={toggleNavbar} />
             </div>
