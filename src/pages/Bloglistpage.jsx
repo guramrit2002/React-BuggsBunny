@@ -82,12 +82,13 @@ function Bloglist() {
                         <MdNavigateNext />
                     </button>
                 </div>
-                <footer>
+                
+            </div>
+            <footer>
                 <div className="footer-container">
                     <p>@BuggsBunny</p>
                 </div>
             </footer>
-            </div>
             
         </>
     );
