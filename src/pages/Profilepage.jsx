@@ -42,7 +42,7 @@ function Profilepage() {
         <>
             <Navbar />
             <div className="container" style={{flexDirection:'column'}}>
-                <h1>Blogs by <span>guramrit1066@gmail.com</span></h1>
+                <h1 className="user-head">Blogs by <span>guramrit1066@gmail.com</span></h1>
                 <div className='blogs'>
                 {userBlogs.map(blog => (
                     <Blog key={blog.id} title = {blog.title} body={blog.body} date = {blog.created_on} url={blog.url} id = {blog.id} called={'profile'}/>

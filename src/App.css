@@ -26,7 +26,7 @@ a{
 .tabs{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   /* padding: 0 2rem; */
 }
 .ham{
@@ -34,7 +34,7 @@ a{
 }
 .tabs li{
   cursor: pointer;
-  padding: 0.5rem;
+  padding:0 1rem;
   height: 100%;
 }
 
@@ -48,7 +48,7 @@ a{
 /* main ccontainer */
 
 .container{
-  height: fit-content;
+  height: 100vh;
   min-height: 85vh;
   width: 100%;
   display: flex;
@@ -460,9 +460,13 @@ footer{
 }
 
 @media screen and (max-width:768px) {
-  
+  .user-head{
+    font-size: 25px;
+    padding-top: 5rem;
+  }
   .container{
   position: relative;
+
   }
   .ham{
     display: flex;
@@ -481,11 +485,16 @@ footer{
     flex-direction: column;
     z-index: 999;
     position: absolute;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   .tabs{
     flex-direction: column;
+    width: 100%;
     display: none;
+    
   }
   .navbar .expanded .tabs {
     display: flex; /* Show tabs when navbar is expanded */
@@ -542,7 +551,10 @@ footer{
     align-items: flex-end;
     justify-content: center;
   }
-  
+  .tabs li{
+  font-size: 25px;
+  text-align: center;
+  }
 }
 
 @media screen and (max-width:430px) {
@@ -551,10 +563,7 @@ footer{
   .blog-brief{
     display: none;
   }
-  .container{
-    height:fit-content;
-
-  }
+  
   
   .blog{
     flex-direction: column;
