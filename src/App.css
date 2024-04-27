@@ -513,17 +513,18 @@ footer{
   .banner-text-mobile{
     display: block;
   }
+  .carrousel{
+    width: 100%;
+    margin: 0;
+    height: 95vh;
+    background-size: cover;
+    border-radius: 0;
+    align-items: flex-end;
+    justify-content: center;
+  }
   
 }
-.carrousel{
-  width: 100%;
-  margin: 0;
-  height: 95vh;
-  background-size: cover;
-  border-radius: 0;
-  align-items: flex-end;
-  justify-content: center;
-}
+
 @media screen and (max-width:430px) {
   
   .blog-brief{
