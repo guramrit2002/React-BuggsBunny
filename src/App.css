@@ -407,6 +407,7 @@ footer{
   display: flex;
   gap: 1rem;
 }
+
 .drag-area{
   height: 35vh;
   width: 100%;
@@ -442,11 +443,33 @@ footer{
 .drag-area input, .on_drop , .visible{
   display:none;
 }
-.delete{
-
+.ham{
+  display: none;
+  
 }
 
 @media screen and (max-width:768px) {
+  .ham{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .inner-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+  }
+  .navbar{
+    justify-content: center;
+    flex-direction: column;
+  }
+  .navbar .tabs{
+    justify-content: center;
+    flex-direction: column;
+    display: none;
+  }
   .user-details{
     flex-direction: column;
     justify-content: center;
@@ -477,13 +500,12 @@ footer{
     width: 100%;
     background-size: cover;
   }
-  .carrousel{
-    width: 80%;
-    height: fit-content;
-  }
+  
   .bg{
-    height: 80%;
-    width: 30%;
+    height: fit-content;
+    width: 100%;
+    margin:5rem 2rem;
+
   }
   .banner-text-laptop{
     display: none;
@@ -492,6 +514,15 @@ footer{
     display: block;
   }
   
+}
+.carrousel{
+  width: 100%;
+  margin: 0;
+  height: 95vh;
+  background-size: cover;
+  border-radius: 0;
+  align-items: flex-end;
+  justify-content: center;
 }
 @media screen and (max-width:430px) {
   
@@ -517,19 +548,23 @@ footer{
     padding: 0;
   }
   .bg{
-    width: 50%;
     height: fit-content;
-    padding: 1rem 0.5rem;
+    width: 50%;
 
+
+  }
+  .carrousel{
+    width: 100%;
+    margin: 0;
+    height: 100vh;
+    background-size: cover;
+    border-radius: 0;
   }
   .bg h1{
     font-size:25px ;
   }
   .bg p{
     font-size: small;
-  }
-  .carrousel{
-    height: 40vh;
   }
   .Categories{
     height: fit-content;
