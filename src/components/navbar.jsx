@@ -1,48 +1,49 @@
 import { Link } from 'react-router-dom';
-import '../App.css';
-import { useAuth } from '../contexts/authcontexts';
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useAuth } from '../contexts/authcontexts';
 import { useState } from 'react';
-
+import '../App.css';
 
 function Navbar() {
     const { logout, currentUser } = useAuth();
     const [isExpanded, setIsExpanded] = useState(false);
 
-    async function handleLogout() {
-        try {
-            await logout();
-        } catch (error) {
-            console.error('Failed to log out:', error);
-        }
-    }
-
     const toggleNavbar = () => {
         setIsExpanded(!isExpanded);
     };
 
+    const collapseNavbar = () => {
+        setIsExpanded(false);
+    };
+
+    const handleLogout = async () => {
+        try {
+            await logout();
+            collapseNavbar(); // Collapse the navbar after logout
+        } catch (error) {
+            console.error('Failed to log out:', error);
+        }
+    };
+
     return (
-        <nav className='navbar' >
-        <div className='inner-header'>
-            <div className='Logo'>
-                <h1>Buggsbunny</h1>
+        <nav className={`navbar ${isExpanded ? 'expanded' : ''}`}>
+            <div className='inner-header'>
+                <div className='Logo'>
+                    <h1>Buggsbunny</h1>
+                </div>
+                <GiHamburgerMenu className='ham' onClick={toggleNavbar} />
             </div>
-            <GiHamburgerMenu className='ham' onClick={toggleNavbar} />
-        </div>
             
-            <ul className={`tabs`} style={{'display': isExpanded?'flex':'none'}} >
-            {console.log(isExpanded)}
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/blogs">Blog</Link></li>
-                <li><Link to="/newblog">Create New</Link></li>
-                <li><Link to="/profile">Profile</Link></li>
-                {currentUser ?(
+            <ul className={`tabs ${isExpanded ? 'visible' : 'hidden'}`} onClick={collapseNavbar}>
+                <li><Link to="/" onClick={collapseNavbar}>Home</Link></li>
+                <li><Link to="/blogs" onClick={collapseNavbar}>Blog</Link></li>
+                <li><Link to="/newblog" onClick={collapseNavbar}>Create New</Link></li>
+                <li><Link to="/profile" onClick={collapseNavbar}>Profile</Link></li>
+                {currentUser ? (
                     <li><Link onClick={handleLogout}>Logout</Link></li>
-                    
-                ):(
-                    <li><Link to={"/login"}>Login</Link></li>
-                )
-            }
+                ) : (
+                    <li><Link to="/login" onClick={collapseNavbar}>Login</Link></li>
+                )}
             </ul>
         </nav>
     );

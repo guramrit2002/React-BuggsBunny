@@ -29,6 +29,9 @@ a{
   justify-content: center;
   /* padding: 0 2rem; */
 }
+.ham{
+  display: none;
+}
 .tabs li{
   cursor: pointer;
   padding: 0.5rem;
@@ -60,7 +63,6 @@ a{
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center;
-
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -447,8 +449,21 @@ footer{
   display: none;
   
 }
+.navbar.expanded .tabs {
+  display: flex; /* Display tabs when navbar is expanded */
+  flex-direction: column; /* Make the tabs stack vertically on smaller screens */
+}
+
+.tabs .hidden {
+  display: none; /* Hidden when navbar is collapsed */
+
+}
 
 @media screen and (max-width:768px) {
+  
+  .container{
+  position: relative;
+  }
   .ham{
     display: flex;
     align-items: center;
@@ -464,11 +479,16 @@ footer{
   .navbar{
     justify-content: center;
     flex-direction: column;
+    z-index: 999;
+    position: absolute;
   }
-  .navbar .tabs{
-    justify-content: center;
+
+  .tabs{
     flex-direction: column;
     display: none;
+  }
+  .navbar .expanded .tabs {
+    display: flex; /* Show tabs when navbar is expanded */
   }
   .user-details{
     flex-direction: column;
@@ -526,12 +546,14 @@ footer{
 }
 
 @media screen and (max-width:430px) {
+
   
   .blog-brief{
     display: none;
   }
   .container{
     height:fit-content;
+
   }
   
   .blog{
