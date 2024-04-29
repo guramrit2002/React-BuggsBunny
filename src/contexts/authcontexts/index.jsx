@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { auth } from "../../Firebase/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { GiRabbitHead } from "react-icons/gi";
 
 const AuthContext = React.createContext();
 
@@ -45,7 +46,7 @@ export function AuthProvider({ children }) {
     // Always render children, but you can use loading state to conditionally show a spinner, etc.
     return (
         <AuthContext.Provider value={value}>
-            {!loading ? children : <div>Loading...</div>}
+            {!loading ? children : <div style={{'display':'flex','alignItems':'center','justifyContent':'center','width':'100%','height':'fit-content','min-height':'100vh','fontSize':'60px'}}><GiRabbitHead /><p>Loading...</p></div>}
         </AuthContext.Provider>
     );
 }

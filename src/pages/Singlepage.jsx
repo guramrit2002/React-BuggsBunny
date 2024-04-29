@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import { IKContext, IKImage } from "imagekitio-react";
 import { urlEndpoint } from "../imagekit/imagekitConfig";
 import { useAuth } from "../contexts/authcontexts";
+import { GiRabbitHead } from "react-icons/gi";
 function Singlepage() {
     const { id } = useParams();
     const [data, setData] = useState(null);
@@ -46,7 +47,12 @@ function Singlepage() {
     }
 
     if (error) return <p>Error loading the blog post.</p>;
-    if (!data) return <p>Loading...</p>; // Ensure data is not null before trying to access it
+    if (!data) {
+        return <div style={{'display':'flex','alignItems':'center','justifyContent':'center','width':'100%','height':'fit-content','min-height':'100vh','fontSize':'60px'}}>
+            <GiRabbitHead/>
+            <p>Loading ...</p>
+        </div>;
+    } // Ensure data is not null before trying to access it
 
     return (
         <>
@@ -73,11 +79,11 @@ function Singlepage() {
                     <h1>{data.title}</h1>
                     <div className="sub-title">
                         <p>{extractDate(data.created_on)}</p>
-                        <p>{currentUser.email}</p>
+                        <p>{data.author}</p>
                     </div>
                 </div>
                 <div className='blog-content'>
-                    <p>{data.content}</p>
+                    <p>{data.body}</p>
                 </div>
                 </>
             )

@@ -5,6 +5,7 @@ import axios from "axios";
 import { IKContext, IKUpload } from "imagekitio-react";
 import { publicKey, urlEndpoint } from "../imagekit/imagekitConfig";
 import { useAuth } from "../contexts/authcontexts";
+import { GiRabbitHead } from "react-icons/gi";
 
 
 function Editblog() {
@@ -70,7 +71,6 @@ function Editblog() {
         }
         fetchBlog()
     }, [id]);
-
 
 
     if (error) return <p>Error loading the blog post.</p>;

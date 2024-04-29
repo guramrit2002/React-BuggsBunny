@@ -24,7 +24,7 @@ function SingleHomepage() {
                 
                 <div className='blog-title'>
                     <h1>{name}</h1>
-                    <p>24/04/2024</p> {/* Assuming data.created_on exists and is a valid ISO string */}
+                    <p>24/04/2024</p>
                 </div>
                 <div className='blog-content'>
                     <p>{content}</p>
