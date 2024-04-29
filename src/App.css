@@ -484,8 +484,10 @@ footer{
   }
   .container{
   position: relative;
-    height: 100vh;
+    height: fit-content;
+    min-height: 100vh;
     justify-content: flex-start;
+
   }
   .ham{
     display: flex;
