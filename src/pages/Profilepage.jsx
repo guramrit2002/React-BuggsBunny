@@ -20,7 +20,7 @@ function Profilepage() {
                 }
                 
                 const idToken = await currentUser.getIdToken(true);
-                axios.get(`https://buggbunny.pythonanywhere.com//getuserblogs/${currentUser.email}`, {
+                axios.get(`https:/buggbunny01.pythonanywhere.com/getuserblogs/${currentUser.email}`, {
                     headers: {
                         Authorization: `Bearer ${idToken}`,
                     }
