@@ -23,7 +23,7 @@ function Blog({ title, body, date, isConnected,url, id, called }) {
         }
         const idToken = await currentUser.getIdToken(true);
 
-        axios.delete(`http://127.0.0.1:8000/deleteblog/${id}`,{
+        axios.delete(`https://buggbunny01.pythonanywhere.com/deleteblog/${id}`,{
             headers: {
                 Authorization: `Bearer ${idToken}`
             }
