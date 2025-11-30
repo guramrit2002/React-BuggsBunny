@@ -25,7 +25,7 @@ function Bloglist() {
                 }
 
                 const idToken = await currentUser.getIdToken(true);
-                const response = await axios.get('https://buggbunny01.pythonanywhere.com/', {
+                const response = await axios.get('https://buggsbunny01.pythonanywhere.com/', {
                     headers: {
                         Authorization: `Bearer ${idToken}`
                     },
