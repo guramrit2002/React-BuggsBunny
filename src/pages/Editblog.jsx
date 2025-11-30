@@ -45,7 +45,7 @@ function Editblog() {
                     throw new Error('User is not authenticated');
                 }
                 const idToken = await currentUser.getIdToken(true);
-                axios.get(`https://buggbunny01.pythonanywhere.com/blog/${id}`, {
+                axios.get(`https://buggsbunny01.pythonanywhere.com/blog/${id}`, {
                     headers: {
                         Authorization: `Bearer ${idToken}`,
 
